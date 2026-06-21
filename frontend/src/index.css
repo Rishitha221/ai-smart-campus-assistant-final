@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #1e293b; /* slate-800 */
+    background-color: #f8fafc; /* slate-50 */
+    transition-property: color, background-color, border-color;
+    transition-duration: 300ms;
+  }
+  
+  body.dark {
+    color: #f1f5f9; /* slate-100 */
+    background-color: #020617; /* slate-950 */
+  }
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #1e293b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: #334155;
+}
+
+/* Glassmorphism Styles */
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.glass-panel-dark {
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.glass-card-dark {
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Dynamic dot background for chatbot */
+.chat-bg-light {
+  background-color: #faf5ff;
+  background-image: radial-gradient(#e9d5ff 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.chat-bg-dark {
+  background-color: #0b0f19;
+  background-image: radial-gradient(#1e1b4b 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Loading Typing Indicator Animation */
+.dot-flashing {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  border-radius: 5px;
+  background-color: #4f46e5;
+  color: #4f46e5;
+  animation: dot-flashing 1s infinite linear alternate;
+  animation-delay: .5s;
+}
+
+.dot-flashing::before, .dot-flashing::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+
+.dot-flashing::before {
+  left: -12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 5px;
+  background-color: #4f46e5;
+  color: #4f46e5;
+  animation: dot-flashing 1s infinite linear alternate;
+  animation-delay: 0s;
+}
+
+.dot-flashing::after {
+  left: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 5px;
+  background-color: #4f46e5;
+  color: #4f46e5;
+  animation: dot-flashing 1s infinite linear alternate;
+  animation-delay: 1s;
+}
+
+@keyframes dot-flashing {
+  0% {
+    background-color: #4f46e5;
+  }
+  50%, 100% {
+    background-color: rgba(79, 70, 229, 0.2);
+  }
+}
+
+.dark .dot-flashing,
+.dark .dot-flashing::before,
+.dark .dot-flashing::after {
+  background-color: #818cf8;
+  color: #818cf8;
+}
+
+@keyframes dark-dot-flashing {
+  0% {
+    background-color: #818cf8;
+  }
+  50%, 100% {
+    background-color: rgba(129, 140, 248, 0.2);
+  }
+}
+
+.dark .dot-flashing {
+  animation: dark-dot-flashing 1s infinite linear alternate;
+  animation-delay: .5s;
+}
+.dark .dot-flashing::before {
+  animation: dark-dot-flashing 1s infinite linear alternate;
+  animation-delay: 0s;
+}
+.dark .dot-flashing::after {
+  animation: dark-dot-flashing 1s infinite linear alternate;
+  animation-delay: 1s;
+}
